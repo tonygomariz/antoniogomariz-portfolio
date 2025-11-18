@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Antonio Gomariz - Photographer, Music Curator, and Web Designer from Argentina">
+  <title>Portfolio | Antonio Gomariz</title>
+  
+  <!-- Preload Critical Assets -->
+  <link rel="preload" href="images/logo.png" as="image">
+  
+  <!-- Favicon -->
+  <link rel="icon" href="images/logo.png" type="image/png">
+  <link rel="shortcut icon" href="images/logo.png" type="image/png">
+  <link rel="apple-touch-icon" href="images/logo.png">
+  <meta name="msapplication-TileImage" content="images/logo.png">
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;700&display=swap" rel="stylesheet">
+  
+  <!-- Font Awesome Icons - with defer attribute for non-critical icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" integrity="sha512-Fo3rlrZj/k7ujTnHg4CGR2D7kSs0v4LLanw2qksYuRlEzO+tcaEPQogQ0KaoGN26/zrn20ImR1DfuLWnOo7aBA==" crossorigin="anonymous" referrerpolicy="no-referrer">
+  
+  <!-- Critical CSS Inline -->
+  <style>
+    *, *::before, *::after {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    
+    :root {
+      --primary-color: #9F1822;
+      --text-color: #fff;
+      --bg-color: #000;
+      --transition-normal: all 0.3s ease;
+      --container-max-width: 1200px;
+    }
+    
+    html {
+      scroll-behavior: smooth;
+    }
+    
+    body {
+      font-family: 'Montserrat', sans-serif;
+      background-color: var(--bg-color);
+      color: var(--text-color);
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      overflow-x: hidden;
+      line-height: 1.6;
+    }
+    
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+    
+    img {
+      max-width: 100%;
+      display: block;
+    }
+    
+    /* Optimized Loader - Less CPU usage */
+    .loader {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: var(--bg-color);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      z-index: 9999;
+      transition: opacity 0.5s ease, visibility 0.5s ease;
+    }
+    
+    .loader.hidden {
+      opacity: 0;
+      visibility: hidden;
+    }
+    
+    .loader-logo {
+      width: 80px;
+    }
+    
+    /* Header Styles */
+    header {
+      background-color: var(--bg-color);
+      padding: 1.5rem 2rem;
+      position: fixed;
+      width: 100%;
+      top: 0;
+      left: 0;
+      z-index: 100;
+      transition: var(--transition-normal);
+      will-change: transform, opacity;
+    }
+    
+    .header-content {
+      max-width: var(--container-max-width);
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    
+    .logo {
+      z-index: 101;
+    }
+    
+    .logo img {
+      max-width: 60px;
+      height: auto;
+      transition: var(--transition-normal);
+    }
+    
+    /* Hide section until they appear */
+    .section {
+      opacity: 0;
+      transform: translateY(20px);
+      transition: opacity 0.5s ease, transform 0.5s ease;
+      will-change: opacity, transform;
+    }
+    
+    .section.appear {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  </style>
+  
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+  <!-- Loader -->
+  <div class="loader">
+    <img src="images/logo.png" alt="Loading" class="loader-logo" width="80" height="80">
+  </div>
+  
+  <!-- Page Transition -->
+  <div class="page-transition"></div>
+  
+  <!-- Header -->
+  <header id="header">
+    <div class="header-content">
+      <div class="logo">
+        <a href="#top">
+          <img src="images/logo.png" alt="Antonio Gomariz Logo" width="60" height="60">
+        </a>
+      </div>
+      
+      <div class="menu-toggle">
+        <span class="bar"></span>
+        <span class="bar"></span>
+        <span class="bar"></span>
+      </div>
+      
+      <nav class="navbar">
+        <ul class="nav-links">
+          <li><a href="#about" class="nav-item">About Me</a></li>
+          <li><a href="#work" class="nav-item">My Work</a></li>
+          <li><a href="#connect" class="nav-item">Connect</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+  
+  <!-- Header Divider -->
+  <div class="header-divider"></div>
+  
+  <main>
+    <!-- About Section -->
+    <section id="about" class="about-section section">
+      <div class="about-text">
+        <div class="text-content">
+          <h1>About Me</h1>
+          <p>
+            A nobody, a world-based Argentinian creative mind hungry to design and build as much as my imagination allows me to do.
+          </p>
+          <p>
+            My career spans diverse industries, blending technical expertise with creative skills.
+          </p>
+          <p>
+            Whether coding websites, managing data, or creating visual content, I approach each project with my signature blend of technical precision and creative vision, always aiming to deliver meaningful experiences that connect with audiences.
+          </p>
+        </div>
+      </div>
+      
+      <div class="about-image">
+        <img src="images/about-me.jpg" alt="Antonio Gomariz - Portrait" loading="lazy" width="600" height="800">
+      </div>
+    </section>
+    
+    <!-- Section Divider - Building -->
+    <div class="section-divider">
+      <div class="divider-image">
+        <img src="images/building-divider.jpg" alt="Building Divider" loading="lazy" width="1200" height="300">
+      </div>
+      <div class="divider-overlay"></div>
+    </div>
+    
+    <!-- My Work Section -->
+    <section id="work" class="work-section section">
+      <h1 class="section-title">My Work</h1>
+      
+      <div class="work-categories">
+        <!-- Photography -->
+        <div class="work-category">
+          <div class="category-image">
+            <img src="images/photography.jpg" alt="Photography Work" loading="lazy" width="350" height="450">
+            <div class="category-overlay">
+              <h2>Photography</h2>
+              <a href="gallery.html" class="view-more">View Gallery</a>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Music Curation -->
+        <div class="work-category">
+          <div class="category-image">
+            <img src="images/music-curation.jpg" alt="Music Curation" loading="lazy" width="350" height="450">
+            <div class="category-overlay">
+              <h2>Music Curation</h2>
+              <a href="music-curation.html" class="view-more">Listen Now</a>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Web Design -->
+        <div class="work-category">
+          <div class="category-image">
+            <img src="images/web-design.jpg" alt="Web Design" loading="lazy" width="350" height="450">
+            <div class="category-overlay">
+              <h2>Web Design</h2>
+              <a href="web-design.html" class="view-more">View Projects</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    
+    <!-- Section Divider - Tree -->
+    <div class="section-divider">
+      <div class="divider-image">
+        <img src="images/tree-divider.jpg" alt="Tree Divider" loading="lazy" width="1200" height="300">
+      </div>
+      <div class="divider-overlay"></div>
+    </div>
+    
+    <!-- Connect Section -->
+    <section id="connect" class="connect-section section">
+      <h1>Let's Create Together</h1>
+      
+      <div id="formMessage" class="form-message"></div>
+      
+      <div class="connect-container">
+        <form class="contact-form" id="contactForm" name="contact" method="POST" data-netlify="true" netlify-honeypot="bot-field">
+          <input type="hidden" name="form-name" value="contact" />
+          <p class="hidden" style="display:none">
+            <label>Don't fill this out if you're human: <input name="bot-field" /></label>
+          </p>
+          
+          <div class="form-group">
+            <label for="name">Name</label>
+            <input type="text" id="name" name="name" required>
+          </div>
+          
+          <div class="form-group">
+            <label for="email">Email</label>
+            <input type="email" id="email" name="email" required>
+          </div>
+          
+          <div class="form-group">
+            <label for="subject">Subject</label>
+            <input type="text" id="subject" name="subject" required>
+          </div>
+          
+          <div class="form-group">
+            <label for="message">Message</label>
+            <textarea id="message" name="message" required></textarea>
+          </div>
+          
+          <button type="submit" class="submit-btn">Send Message</button>
+        </form>
+        
+        <div class="connect-info">
+          <div class="info-item">
+            <h3>Current Location</h3>
+            <p>Argentina</p>
+          </div>
+          
+          <div class="social-links">
+            <h3>Follow Me</h3>
+            <div class="social-icons">
+              <a href="https://www.instagram.com/tony_gomariz/" target="_blank" aria-label="Instagram">
+                <i class="fab fa-instagram"></i>
+              </a>
+              <a href="https://soundcloud.com/tony_gomariz" target="_blank" aria-label="SoundCloud">
+                <i class="fab fa-soundcloud"></i>
+              </a>
+              <a href="https://www.youtube.com/@tony_gomariz" target="_blank" aria-label="YouTube">
+                <i class="fab fa-youtube"></i>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+  
+  <!-- Footer -->
+  <footer>
+    <div class="footer-quote">
+      <p>what we think,<br>we become.</p>
+    </div>
+    <div class="footer-logo">
+      <img src="images/secondary-logo.png" alt="Antonio Gomariz Secondary Logo" width="60" height="60">
+    </div>
+  </footer>
+  
+  <!-- Optimized JS loading -->
+  <script src="js/main.js" defer></script>
+</body>
+</html>

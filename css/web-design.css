@@ -1,0 +1,192 @@
+/* Web Design Page Specific Styles */
+.webdesign-project {
+  max-width: var(--container-max-width);
+  margin: 0 auto;
+  padding: 2rem;
+}
+
+.project-info {
+  display: flex;
+  margin-bottom: 3rem;
+}
+
+.project-description {
+  flex: 2;
+  padding: 2rem;
+  background-color: var(--bg-color);
+}
+
+.project-description h1 {
+  font-size: 2.5rem;
+  margin-bottom: 1.5rem;
+  position: relative;
+  display: inline-block;
+  padding-bottom: 0.5rem;
+}
+
+.project-description h1::after {
+  content: '';
+  position: absolute;
+  width: 50px;
+  height: 3px;
+  background-color: var(--primary-color);
+  bottom: 0;
+  left: 0;
+  transition: var(--transition-normal);
+}
+
+.project-description:hover h1::after {
+  width: 100px;
+}
+
+.project-description p {
+  font-size: 1.1rem;
+  margin-bottom: 1.5rem;
+  line-height: 1.6;
+}
+
+.project-tech {
+  flex: 1;
+  padding: 2rem;
+  background-color: var(--primary-color);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.project-tech h2 {
+  color: #000;
+  margin-bottom: 2rem;
+  font-size: 1.8rem;
+  text-align: center;
+}
+
+.tech-carousel {
+  width: 100%;
+  position: relative;
+  height: 150px;
+  overflow: hidden;
+}
+
+.tech-slide {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.5s ease, transform 0.5s ease;
+}
+
+.tech-slide.active {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.tech-slide i {
+  font-size: 3rem;
+  color: #000;
+  margin-bottom: 1rem;
+}
+
+.tech-slide span {
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: #000;
+}
+
+.project-showcase {
+  width: 100%;
+  height: 600px;
+  overflow: hidden;
+  position: relative;
+  border-radius: 8px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.7);
+}
+
+.project-image {
+  display: block;
+  width: 100%;
+  height: 100%;
+  position: relative;
+  overflow: hidden;
+}
+
+.project-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: top;
+  transition: var(--transition-slow);
+  filter: grayscale(0.8);
+}
+
+/* Slow down the button transition animation */
+.project-image:hover img {
+  transform: scale(1.05);
+  filter: grayscale(0);
+  transition: transform 1.2s ease, filter 1.2s ease; /* Slowed down from 0.5s to 1.2s */
+}
+
+.project-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.7);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  opacity: 0;
+  transition: opacity 1.2s ease; /* Slowed down from 0.3s to 1.2s */
+}
+
+.project-image:hover .project-overlay {
+  opacity: 1;
+}
+
+.project-overlay span {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--text-color);
+  padding: 1rem 2rem;
+  border: 2px solid var(--primary-color);
+  background-color: transparent;
+  transition: var(--transition-slow); /* Using the slower transition here */
+  transform: translateY(20px);
+  opacity: 0;
+  transition: background-color 0.5s ease, transform 1s ease, opacity 1s ease;
+  transition-delay: 0.4s; /* Delay to appear after the image transition starts */
+}
+
+.project-image:hover .project-overlay span {
+  background-color: transparent;
+  transform: translateY(0);
+  opacity: 1;
+}
+
+.project-overlay span:hover {
+  background-color: var(--primary-color);
+}
+
+/* Responsive Styles */
+@media (max-width: 992px) {
+  .project-info {
+    flex-direction: column;
+  }
+  
+  .project-tech {
+    padding: 3rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .project-showcase {
+    height: 400px;
+  }
+}
