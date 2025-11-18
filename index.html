@@ -4,163 +4,66 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="description" content="Antonio Gomariz - Photographer, Music Curator, and Web Designer from Argentina">
+  <meta name="author" content="Antonio Gomariz">
+  <meta name="theme-color" content="#9F1822">
+
   <title>Portfolio | Antonio Gomariz</title>
-  
-  <!-- Preload Critical Assets -->
+
+  <!-- Preconnect to external resources -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+  <!-- Preload critical assets -->
   <link rel="preload" href="images/logo.png" as="image">
-  
+  <link rel="preload" href="css/modules/variables.css" as="style">
+
   <!-- Favicon -->
   <link rel="icon" href="images/logo.png" type="image/png">
   <link rel="shortcut icon" href="images/logo.png" type="image/png">
   <link rel="apple-touch-icon" href="images/logo.png">
   <meta name="msapplication-TileImage" content="images/logo.png">
 
-  <!-- Google Fonts -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <!-- Google Fonts - Montserrat -->
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;700&display=swap" rel="stylesheet">
-  
-  <!-- Font Awesome Icons - with defer attribute for non-critical icons -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" integrity="sha512-Fo3rlrZj/k7ujTnHg4CGR2D7kSs0v4LLanw2qksYuRlEzO+tcaEPQogQ0KaoGN26/zrn20ImR1DfuLWnOo7aBA==" crossorigin="anonymous" referrerpolicy="no-referrer">
-  
-  <!-- Critical CSS Inline -->
-  <style>
-    *, *::before, *::after {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
-    
-    :root {
-      --primary-color: #9F1822;
-      --text-color: #fff;
-      --bg-color: #000;
-      --transition-normal: all 0.3s ease;
-      --container-max-width: 1200px;
-    }
-    
-    html {
-      scroll-behavior: smooth;
-    }
-    
-    body {
-      font-family: 'Montserrat', sans-serif;
-      background-color: var(--bg-color);
-      color: var(--text-color);
-      min-height: 100vh;
-      display: flex;
-      flex-direction: column;
-      overflow-x: hidden;
-      line-height: 1.6;
-    }
-    
-    a {
-      text-decoration: none;
-      color: inherit;
-    }
-    
-    img {
-      max-width: 100%;
-      display: block;
-    }
-    
-    /* Optimized Loader - Less CPU usage */
-    .loader {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background-color: var(--bg-color);
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      z-index: 9999;
-      transition: opacity 0.5s ease, visibility 0.5s ease;
-    }
-    
-    .loader.hidden {
-      opacity: 0;
-      visibility: hidden;
-    }
-    
-    .loader-logo {
-      width: 80px;
-    }
-    
-    /* Header Styles */
-    header {
-      background-color: var(--bg-color);
-      padding: 1.5rem 2rem;
-      position: fixed;
-      width: 100%;
-      top: 0;
-      left: 0;
-      z-index: 100;
-      transition: var(--transition-normal);
-      will-change: transform, opacity;
-    }
-    
-    .header-content {
-      max-width: var(--container-max-width);
-      margin: 0 auto;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-    }
-    
-    .logo {
-      z-index: 101;
-    }
-    
-    .logo img {
-      max-width: 60px;
-      height: auto;
-      transition: var(--transition-normal);
-    }
-    
-    /* Hide section until they appear */
-    .section {
-      opacity: 0;
-      transform: translateY(20px);
-      transition: opacity 0.5s ease, transform 0.5s ease;
-      will-change: opacity, transform;
-    }
-    
-    .section.appear {
-      opacity: 1;
-      transform: translateY(0);
-    }
-  </style>
-  
-  <!-- Custom CSS -->
+
+  <!-- Font Awesome Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+        integrity="sha512-Fo3rlrZj/k7ujTnHg4CGR2D7kSs0v4LLanw2qksYuRlEzO+tcaEPQogQ0KaoGN26/zrn20ImR1DfuLWnOo7aBA=="
+        crossorigin="anonymous"
+        referrerpolicy="no-referrer">
+
+  <!-- Main CSS (modular architecture) -->
   <link rel="stylesheet" href="css/styles.css">
 </head>
+
 <body>
-  <!-- Loader -->
-  <div class="loader">
+  <!-- Page Loader -->
+  <div class="loader" role="status" aria-label="Loading">
     <img src="images/logo.png" alt="Loading" class="loader-logo" width="80" height="80">
   </div>
-  
-  <!-- Page Transition -->
-  <div class="page-transition"></div>
-  
-  <!-- Header -->
-  <header id="header">
+
+  <!-- Page Transition Overlay -->
+  <div class="page-transition" aria-hidden="true"></div>
+
+  <!-- Header & Navigation -->
+  <header id="header" role="banner">
     <div class="header-content">
+      <!-- Logo -->
       <div class="logo">
-        <a href="#top">
+        <a href="#top" aria-label="Go to top">
           <img src="images/logo.png" alt="Antonio Gomariz Logo" width="60" height="60">
         </a>
       </div>
-      
-      <div class="menu-toggle">
+
+      <!-- Mobile Menu Toggle -->
+      <button class="menu-toggle" aria-label="Toggle navigation menu" aria-expanded="false">
         <span class="bar"></span>
         <span class="bar"></span>
         <span class="bar"></span>
-      </div>
-      
-      <nav class="navbar">
+      </button>
+
+      <!-- Navigation -->
+      <nav class="navbar" role="navigation" aria-label="Main navigation">
         <ul class="nav-links">
           <li><a href="#about" class="nav-item">About Me</a></li>
           <li><a href="#work" class="nav-item">My Work</a></li>
@@ -169,16 +72,15 @@
       </nav>
     </div>
   </header>
-  
-  <!-- Header Divider -->
-  <div class="header-divider"></div>
-  
-  <main>
+
+  <!-- Main Content -->
+  <main id="main-content">
+
     <!-- About Section -->
-    <section id="about" class="about-section section">
+    <section id="about" class="about-section section" aria-labelledby="about-heading">
       <div class="about-text">
         <div class="text-content">
-          <h1>About Me</h1>
+          <h1 id="about-heading">About Me</h1>
           <p>
             A nobody, a world-based Argentinian creative mind hungry to design and build as much as my imagination allows me to do.
           </p>
@@ -190,140 +92,196 @@
           </p>
         </div>
       </div>
-      
+
       <div class="about-image">
         <img src="images/about-me.jpg" alt="Antonio Gomariz - Portrait" loading="lazy" width="600" height="800">
       </div>
     </section>
-    
-    <!-- Section Divider - Building -->
-    <div class="section-divider">
+
+    <!-- Decorative Section Divider -->
+    <div class="section-divider" role="presentation" aria-hidden="true">
       <div class="divider-image">
-        <img src="images/building-divider.jpg" alt="Building Divider" loading="lazy" width="1200" height="300">
+        <img src="images/building-divider.jpg" alt="" loading="lazy" width="1200" height="300">
       </div>
       <div class="divider-overlay"></div>
     </div>
-    
+
     <!-- My Work Section -->
-    <section id="work" class="work-section section">
-      <h1 class="section-title">My Work</h1>
-      
+    <section id="work" class="work-section section" aria-labelledby="work-heading">
+      <h1 id="work-heading" class="section-title">My Work</h1>
+
       <div class="work-categories">
-        <!-- Photography -->
-        <div class="work-category">
-          <div class="category-image">
-            <img src="images/photography.jpg" alt="Photography Work" loading="lazy" width="350" height="450">
-            <div class="category-overlay">
+
+        <!-- Photography Card -->
+        <article class="work-category card">
+          <div class="category-image card-image">
+            <img src="images/photography.jpg" alt="Photography Portfolio" loading="lazy" width="350" height="450">
+            <div class="category-overlay card-overlay">
               <h2>Photography</h2>
-              <a href="gallery.html" class="view-more">View Gallery</a>
+              <a href="gallery.html" class="view-more btn btn-primary" aria-label="View photography gallery">
+                View Gallery
+              </a>
             </div>
           </div>
-        </div>
-        
-        <!-- Music Curation -->
-        <div class="work-category">
-          <div class="category-image">
+        </article>
+
+        <!-- Music Curation Card -->
+        <article class="work-category card">
+          <div class="category-image card-image">
             <img src="images/music-curation.jpg" alt="Music Curation" loading="lazy" width="350" height="450">
-            <div class="category-overlay">
+            <div class="category-overlay card-overlay">
               <h2>Music Curation</h2>
-              <a href="music-curation.html" class="view-more">Listen Now</a>
+              <a href="music-curation.html" class="view-more btn btn-primary" aria-label="Listen to curated music">
+                Listen Now
+              </a>
             </div>
           </div>
-        </div>
-        
-        <!-- Web Design -->
-        <div class="work-category">
-          <div class="category-image">
-            <img src="images/web-design.jpg" alt="Web Design" loading="lazy" width="350" height="450">
-            <div class="category-overlay">
+        </article>
+
+        <!-- Web Design Card -->
+        <article class="work-category card">
+          <div class="category-image card-image">
+            <img src="images/web-design.jpg" alt="Web Design Projects" loading="lazy" width="350" height="450">
+            <div class="category-overlay card-overlay">
               <h2>Web Design</h2>
-              <a href="web-design.html" class="view-more">View Projects</a>
+              <a href="web-design.html" class="view-more btn btn-primary" aria-label="View web design projects">
+                View Projects
+              </a>
             </div>
           </div>
-        </div>
+        </article>
+
       </div>
     </section>
-    
-    <!-- Section Divider - Tree -->
-    <div class="section-divider">
+
+    <!-- Decorative Section Divider -->
+    <div class="section-divider" role="presentation" aria-hidden="true">
       <div class="divider-image">
-        <img src="images/tree-divider.jpg" alt="Tree Divider" loading="lazy" width="1200" height="300">
+        <img src="images/tree-divider.jpg" alt="" loading="lazy" width="1200" height="300">
       </div>
       <div class="divider-overlay"></div>
     </div>
-    
+
     <!-- Connect Section -->
-    <section id="connect" class="connect-section section">
-      <h1>Let's Create Together</h1>
-      
-      <div id="formMessage" class="form-message"></div>
-      
+    <section id="connect" class="connect-section section" aria-labelledby="connect-heading">
+      <h1 id="connect-heading">Let's Create Together</h1>
+
+      <!-- Form Message Container -->
+      <div id="formMessage" class="form-message" role="alert" aria-live="polite"></div>
+
       <div class="connect-container">
-        <form class="contact-form" id="contactForm" name="contact" method="POST" data-netlify="true" netlify-honeypot="bot-field">
-          <input type="hidden" name="form-name" value="contact" />
-          <p class="hidden" style="display:none">
-            <label>Don't fill this out if you're human: <input name="bot-field" /></label>
-          </p>
-          
+
+        <!-- Contact Form -->
+        <form class="contact-form" id="contactForm" method="POST" novalidate>
+
+          <!-- Name Field -->
           <div class="form-group">
-            <label for="name">Name</label>
-            <input type="text" id="name" name="name" required>
+            <label for="name">Name *</label>
+            <input
+              type="text"
+              id="name"
+              name="name"
+              required
+              aria-required="true"
+              autocomplete="name"
+              placeholder="Your name">
           </div>
-          
+
+          <!-- Email Field -->
           <div class="form-group">
-            <label for="email">Email</label>
-            <input type="email" id="email" name="email" required>
+            <label for="email">Email *</label>
+            <input
+              type="email"
+              id="email"
+              name="email"
+              required
+              aria-required="true"
+              autocomplete="email"
+              placeholder="your.email@example.com">
           </div>
-          
+
+          <!-- Subject Field -->
           <div class="form-group">
-            <label for="subject">Subject</label>
-            <input type="text" id="subject" name="subject" required>
+            <label for="subject">Subject *</label>
+            <input
+              type="text"
+              id="subject"
+              name="subject"
+              required
+              aria-required="true"
+              placeholder="What's this about?">
           </div>
-          
+
+          <!-- Message Field -->
           <div class="form-group">
-            <label for="message">Message</label>
-            <textarea id="message" name="message" required></textarea>
+            <label for="message">Message *</label>
+            <textarea
+              id="message"
+              name="message"
+              required
+              aria-required="true"
+              placeholder="Tell me about your project or inquiry..."
+              rows="6"></textarea>
           </div>
-          
-          <button type="submit" class="submit-btn">Send Message</button>
+
+          <!-- Submit Button -->
+          <button type="submit" class="btn btn-primary submit-btn">
+            Send Message
+          </button>
+
         </form>
-        
-        <div class="connect-info">
+
+        <!-- Contact Information -->
+        <aside class="connect-info">
+
           <div class="info-item">
             <h3>Current Location</h3>
             <p>Argentina</p>
           </div>
-          
+
           <div class="social-links">
             <h3>Follow Me</h3>
             <div class="social-icons">
-              <a href="https://www.instagram.com/tony_gomariz/" target="_blank" aria-label="Instagram">
-                <i class="fab fa-instagram"></i>
+              <a href="https://www.instagram.com/tony_gomariz/"
+                 target="_blank"
+                 rel="noopener noreferrer"
+                 aria-label="Follow on Instagram">
+                <i class="fab fa-instagram" aria-hidden="true"></i>
               </a>
-              <a href="https://soundcloud.com/tony_gomariz" target="_blank" aria-label="SoundCloud">
-                <i class="fab fa-soundcloud"></i>
+              <a href="https://soundcloud.com/tony_gomariz"
+                 target="_blank"
+                 rel="noopener noreferrer"
+                 aria-label="Listen on SoundCloud">
+                <i class="fab fa-soundcloud" aria-hidden="true"></i>
               </a>
-              <a href="https://www.youtube.com/@tony_gomariz" target="_blank" aria-label="YouTube">
-                <i class="fab fa-youtube"></i>
+              <a href="https://www.youtube.com/@tony_gomariz"
+                 target="_blank"
+                 rel="noopener noreferrer"
+                 aria-label="Watch on YouTube">
+                <i class="fab fa-youtube" aria-hidden="true"></i>
               </a>
             </div>
           </div>
-        </div>
+
+        </aside>
+
       </div>
     </section>
+
   </main>
-  
+
   <!-- Footer -->
-  <footer>
+  <footer role="contentinfo">
     <div class="footer-quote">
       <p>what we think,<br>we become.</p>
     </div>
     <div class="footer-logo">
-      <img src="images/secondary-logo.png" alt="Antonio Gomariz Secondary Logo" width="60" height="60">
+      <img src="images/secondary-logo.png" alt="Antonio Gomariz" width="60" height="60">
     </div>
   </footer>
-  
-  <!-- Optimized JS loading -->
-  <script src="js/main.js" defer></script>
+
+  <!-- JavaScript (ES6 Modules) -->
+  <script type="module" src="js/main.js"></script>
+
 </body>
 </html>
