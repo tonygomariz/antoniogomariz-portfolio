@@ -3,273 +3,254 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Antonio Gomariz - Photography Gallery">
+  <meta name="description" content="Antonio Gomariz - Photography Gallery showcasing events, portraits, and commercial work">
+  <meta name="author" content="Antonio Gomariz">
+  <meta name="theme-color" content="#9F1822">
+
   <title>Photography Gallery | Antonio Gomariz</title>
-  
-  <!-- Preload Critical Assets -->
+
+  <!-- Preconnect to external resources -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+  <!-- Preload critical assets -->
   <link rel="preload" href="images/logo.png" as="image">
-  
+
   <!-- Favicon -->
   <link rel="icon" href="images/logo.png" type="image/png">
   <link rel="shortcut icon" href="images/logo.png" type="image/png">
   <link rel="apple-touch-icon" href="images/logo.png">
   <meta name="msapplication-TileImage" content="images/logo.png">
 
-  <!-- Google Fonts -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <!-- Google Fonts - Montserrat -->
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;700&display=swap" rel="stylesheet">
-  
+
   <!-- Font Awesome Icons -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" integrity="sha512-Fo3rlrZj/k7ujTnHg4CGR2D7kSs0v4LLanw2qksYuRlEzO+tcaEPQogQ0KaoGN26/zrn20ImR1DfuLWnOo7aBA==" crossorigin="anonymous" referrerpolicy="no-referrer">
-  
-  <!-- Critical CSS Inline -->
-  <style>
-    *, *::before, *::after {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
-    
-    :root {
-      --primary-color: #9F1822;
-      --text-color: #fff;
-      --bg-color: #000;
-      --transition-normal: all 0.3s ease;
-      --container-max-width: 1200px;
-    }
-    
-    body {
-      font-family: 'Montserrat', sans-serif;
-      background-color: var(--bg-color);
-      color: var(--text-color);
-      min-height: 100vh;
-      display: flex;
-      flex-direction: column;
-      overflow-x: hidden;
-      line-height: 1.6;
-    }
-    
-    /* Loader */
-    .loader {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background-color: var(--bg-color);
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      z-index: 9999;
-      transition: opacity 0.5s ease, visibility 0.5s ease;
-    }
-    
-    .loader.hidden {
-      opacity: 0;
-      visibility: hidden;
-    }
-    
-    /* Header */
-    header {
-      background-color: var(--bg-color);
-      padding: 1.5rem 2rem;
-      position: fixed;
-      width: 100%;
-      top: 0;
-      left: 0;
-      z-index: 100;
-      transition: var(--transition-normal);
-      will-change: transform;
-    }
-    
-    .header-content {
-      max-width: var(--container-max-width);
-      margin: 0 auto;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-    }
-    
-    /* Gallery Specific Critical CSS */
-    .carousel-container {
-      overflow: hidden !important;
-      width: 350px !important; /* Force single image on mobile */
-      max-width: 90% !important;
-      margin: 0 auto !important;
-      height: 400px !important;
-      position: relative !important;
-    }
-    
-    .carousel {
-      height: 100% !important;
-      display: flex !important;
-      align-items: center !important;
-      justify-content: flex-start !important;
-      padding: 0 !important;
-      will-change: transform;
-    }
-    
-    .carousel-image {
-      width: 300px !important;
-      height: 380px !important;
-      margin: 0 25px !important;
-      border-radius: 8px !important;
-      object-fit: cover !important;
-      flex-shrink: 0 !important;
-      filter: blur(10px);
-      transform: translateZ(0);
-      transition: filter 0.5s ease, transform 0.3s ease, border-color 0.3s ease !important;
-    }
-    
-    .carousel-image.loaded {
-      filter: blur(0);
-    }
-    
-    /* Progressive loading animation */
-    @keyframes fadeIn {
-      from { opacity: 0.6; }
-      to { opacity: 1; }
-    }
-    
-    .section {
-      opacity: 0;
-      transform: translateY(20px);
-      transition: opacity 0.5s ease, transform 0.5s ease;
-      will-change: opacity, transform;
-    }
-    
-    .section.appear {
-      opacity: 1;
-      transform: translateY(0);
-    }
-  </style>
-  
-  <!-- Custom CSS -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+        integrity="sha512-Fo3rlrZj/k7ujTnHg4CGR2D7kSs0v4LLanw2qksYuRlEzO+tcaEPQogQ0KaoGN26/zrn20ImR1DfuLWnOo7aBA=="
+        crossorigin="anonymous"
+        referrerpolicy="no-referrer">
+
+  <!-- Main CSS (modular architecture) -->
   <link rel="stylesheet" href="css/styles.css">
   <link rel="stylesheet" href="css/gallery.css">
 </head>
+
 <body>
-  <!-- Loader -->
-  <div class="loader">
+  <!-- Page Loader -->
+  <div class="loader" role="status" aria-label="Loading">
     <img src="images/logo.png" alt="Loading" class="loader-logo" width="80" height="80">
   </div>
-  
-  <!-- Page Transition -->
-  <div class="page-transition"></div>
-  
-  <!-- Header -->
-  <header>
+
+  <!-- Page Transition Overlay -->
+  <div class="page-transition" aria-hidden="true"></div>
+
+  <!-- Header & Navigation -->
+  <header id="header" role="banner">
     <div class="header-content">
+      <!-- Logo -->
       <div class="logo">
-        <a href="index.html">
+        <a href="index.html" aria-label="Return to homepage">
           <img src="images/logo.png" alt="Antonio Gomariz Logo" width="60" height="60">
         </a>
       </div>
-      
-      <div class="menu-toggle">
+
+      <!-- Mobile Menu Toggle -->
+      <button class="menu-toggle" aria-label="Toggle navigation menu" aria-expanded="false">
         <span class="bar"></span>
         <span class="bar"></span>
         <span class="bar"></span>
-      </div>
-      
-      <nav class="navbar">
+      </button>
+
+      <!-- Navigation -->
+      <nav class="navbar" role="navigation" aria-label="Main navigation">
         <ul class="nav-links">
-          <li><a href="index.html#about">ABOUT ME</a></li>
-          <li><a href="index.html#work">MY WORK</a></li>
-          <li><a href="index.html#connect">CONNECT</a></li>
+          <li><a href="index.html#about">About Me</a></li>
+          <li><a href="index.html#work">My Work</a></li>
+          <li><a href="index.html#connect">Connect</a></li>
         </ul>
       </nav>
     </div>
   </header>
-  
-  <!-- Header Divider -->
-  <div class="header-divider"></div>
-  
-  <main>
+
+  <!-- Main Content -->
+  <main id="main-content">
+
     <!-- Gallery Section -->
-    <section class="gallery-section section">
-      <h1 class="page-title">Photography Gallery</h1>
-      
+    <section class="gallery-section section" aria-labelledby="gallery-heading">
+      <h1 id="gallery-heading" class="page-title">Photography Gallery</h1>
+
+      <!-- Filter Controls -->
       <div class="filter-container">
-        <label for="filter">FILTER BY:</label>
-        <select id="filter">
+        <label for="filter">Filter by category:</label>
+        <select id="filter" aria-label="Filter gallery by category">
           <option value="all">All</option>
           <option value="events">Events</option>
           <option value="portraits">Portraits</option>
           <option value="commercial">Commercial</option>
         </select>
       </div>
-      
-      <div class="carousel-wrapper">
-        <div class="carousel-container">
-          <!-- Add solid masks -->
-          <div class="side-mask-left"></div>
-          <div class="side-mask-right"></div>
-          
-          <button class="carousel-btn left-btn" aria-label="Previous Image">
-            <i class="fas fa-chevron-left"></i>
-          </button>
-          
-          <div class="carousel">
-            <!-- Event images with loading="lazy" and dimensions -->
-            <img src="images/event1.jpg" class="carousel-image events" alt="Event photograph 1" data-index="0" loading="lazy" width="300" height="380">
-            <img src="images/event2.JPG" class="carousel-image events" alt="Event photograph 2" data-index="1" loading="lazy" width="300" height="380">
-            <img src="images/event3.JPG" class="carousel-image events" alt="Event photograph 3" data-index="2" loading="lazy" width="300" height="380">
-            <img src="images/event4.JPG" class="carousel-image events" alt="Event photograph 4" data-index="3" loading="lazy" width="300" height="380">
-            
-            <!-- Portrait images with loading="lazy" and dimensions -->
-            <img src="images/portrait1.jpg" class="carousel-image portraits" alt="Portrait photograph 1" data-index="4" loading="lazy" width="300" height="380">
-            <img src="images/portrait2.jpg" class="carousel-image portraits" alt="Portrait photograph 2" data-index="5" loading="lazy" width="300" height="380">
-            <img src="images/portrait3.jpg" class="carousel-image portraits" alt="Portrait photograph 3" data-index="6" loading="lazy" width="300" height="380">
-            <img src="images/portrait4.jpg" class="carousel-image portraits" alt="Portrait photograph 4" data-index="7" loading="lazy" width="300" height="380">
 
-            <!-- Comercial images with loading="lazy" and dimensions -->
-            <img src="images/comercial1.JPG" class="carousel-image commercial" alt="Commercial photograph 1" data-index="8" loading="lazy" width="300" height="380">
-            <img src="images/comercial2.JPG" class="carousel-image commercial" alt="Commercial photograph 2" data-index="9" loading="lazy" width="300" height="380">
-            <img src="images/comercial3.JPG" class="carousel-image commercial" alt="Commercial photograph 3" data-index="10" loading="lazy" width="300" height="380">
-            <img src="images/comercial4.JPG" class="carousel-image commercial" alt="Commercial photograph 4" data-index="11" loading="lazy" width="300" height="380">
+      <!-- Carousel -->
+      <div class="carousel-wrapper">
+        <div class="carousel-container" role="region" aria-label="Photography carousel">
+
+          <!-- Side masks for visual effect -->
+          <div class="side-mask-left" aria-hidden="true"></div>
+          <div class="side-mask-right" aria-hidden="true"></div>
+
+          <!-- Previous Button -->
+          <button class="carousel-btn left-btn" aria-label="View previous image">
+            <i class="fas fa-chevron-left" aria-hidden="true"></i>
+          </button>
+
+          <!-- Carousel Images -->
+          <div class="carousel" role="list">
+            <!-- Event images -->
+            <img src="images/event1.jpg"
+                 class="carousel-image events"
+                 alt="Event photograph 1"
+                 data-index="0"
+                 loading="lazy"
+                 width="300"
+                 height="380"
+                 role="listitem">
+            <img src="images/event2.JPG"
+                 class="carousel-image events"
+                 alt="Event photograph 2"
+                 data-index="1"
+                 loading="lazy"
+                 width="300"
+                 height="380"
+                 role="listitem">
+            <img src="images/event3.JPG"
+                 class="carousel-image events"
+                 alt="Event photograph 3"
+                 data-index="2"
+                 loading="lazy"
+                 width="300"
+                 height="380"
+                 role="listitem">
+            <img src="images/event4.JPG"
+                 class="carousel-image events"
+                 alt="Event photograph 4"
+                 data-index="3"
+                 loading="lazy"
+                 width="300"
+                 height="380"
+                 role="listitem">
+
+            <!-- Portrait images -->
+            <img src="images/portrait1.jpg"
+                 class="carousel-image portraits"
+                 alt="Portrait photograph 1"
+                 data-index="4"
+                 loading="lazy"
+                 width="300"
+                 height="380"
+                 role="listitem">
+            <img src="images/portrait2.jpg"
+                 class="carousel-image portraits"
+                 alt="Portrait photograph 2"
+                 data-index="5"
+                 loading="lazy"
+                 width="300"
+                 height="380"
+                 role="listitem">
+            <img src="images/portrait3.jpg"
+                 class="carousel-image portraits"
+                 alt="Portrait photograph 3"
+                 data-index="6"
+                 loading="lazy"
+                 width="300"
+                 height="380"
+                 role="listitem">
+            <img src="images/portrait4.jpg"
+                 class="carousel-image portraits"
+                 alt="Portrait photograph 4"
+                 data-index="7"
+                 loading="lazy"
+                 width="300"
+                 height="380"
+                 role="listitem">
+
+            <!-- Commercial images -->
+            <img src="images/comercial1.JPG"
+                 class="carousel-image commercial"
+                 alt="Commercial photograph 1"
+                 data-index="8"
+                 loading="lazy"
+                 width="300"
+                 height="380"
+                 role="listitem">
+            <img src="images/comercial2.JPG"
+                 class="carousel-image commercial"
+                 alt="Commercial photograph 2"
+                 data-index="9"
+                 loading="lazy"
+                 width="300"
+                 height="380"
+                 role="listitem">
+            <img src="images/comercial3.JPG"
+                 class="carousel-image commercial"
+                 alt="Commercial photograph 3"
+                 data-index="10"
+                 loading="lazy"
+                 width="300"
+                 height="380"
+                 role="listitem">
+            <img src="images/comercial4.JPG"
+                 class="carousel-image commercial"
+                 alt="Commercial photograph 4"
+                 data-index="11"
+                 loading="lazy"
+                 width="300"
+                 height="380"
+                 role="listitem">
           </div>
-          
-          <button class="carousel-btn right-btn" aria-label="Next Image">
-            <i class="fas fa-chevron-right"></i>
+
+          <!-- Next Button -->
+          <button class="carousel-btn right-btn" aria-label="View next image">
+            <i class="fas fa-chevron-right" aria-hidden="true"></i>
           </button>
         </div>
       </div>
     </section>
+
   </main>
-  
+
   <!-- Footer -->
-  <footer>
+  <footer role="contentinfo">
     <div class="footer-quote">
       <p>what we think,<br>we become.</p>
     </div>
     <div class="footer-logo">
-      <img src="images/secondary-logo.png" alt="Antonio Gomariz Secondary Logo" width="60" height="60">
+      <img src="images/secondary-logo.png" alt="Antonio Gomariz" width="60" height="60">
     </div>
   </footer>
-  
-  <!-- Lightbox for Gallery -->
-  <div id="lightbox" class="lightbox">
-    <span class="close-lightbox" aria-label="Close Lightbox">&times;</span>
-    
-    <button class="lightbox-btn prev-btn" aria-label="Previous Image">
-      <i class="fas fa-chevron-left"></i>
+
+  <!-- Lightbox Modal -->
+  <div id="lightbox" class="lightbox" role="dialog" aria-modal="true" aria-label="Image lightbox">
+    <button class="close-lightbox" aria-label="Close lightbox">&times;</button>
+
+    <button class="lightbox-btn prev-btn" aria-label="View previous image">
+      <i class="fas fa-chevron-left" aria-hidden="true"></i>
     </button>
-    
+
     <div class="lightbox-content">
-      <img id="lightbox-img" alt="Enlarged Image">
-      <div class="lightbox-vignette"></div>
-      <div class="image-counter">1 / 20</div>
+      <img id="lightbox-img" alt="Enlarged photograph">
+      <div class="lightbox-vignette" aria-hidden="true"></div>
+      <div class="image-counter" aria-live="polite">1 / 12</div>
     </div>
-    
-    <button class="lightbox-btn next-btn" aria-label="Next Image">
-      <i class="fas fa-chevron-right"></i>
+
+    <button class="lightbox-btn next-btn" aria-label="View next image">
+      <i class="fas fa-chevron-right" aria-hidden="true"></i>
     </button>
   </div>
-  
-  <!-- Custom JavaScript -->
-  <script src="js/main.js" defer></script>
+
+  <!-- JavaScript (ES6 Modules) -->
+  <script type="module" src="js/main.js"></script>
   <script src="js/gallery.js" defer></script>
+
 </body>
 </html>

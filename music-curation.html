@@ -3,123 +3,172 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Antonio Gomariz - Music Curation Projects">
+  <meta name="description" content="Antonio Gomariz - Music Curation Projects including Soul Sounds event">
+  <meta name="author" content="Antonio Gomariz">
+  <meta name="theme-color" content="#9F1822">
+
   <title>Music Curation | Antonio Gomariz</title>
-  
+
+  <!-- Preconnect to external resources -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+  <!-- Preload critical assets -->
+  <link rel="preload" href="images/logo.png" as="image">
+
   <!-- Favicon -->
   <link rel="icon" href="images/logo.png" type="image/png">
   <link rel="shortcut icon" href="images/logo.png" type="image/png">
   <link rel="apple-touch-icon" href="images/logo.png">
   <meta name="msapplication-TileImage" content="images/logo.png">
-  
-  <!-- Google Fonts -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+  <!-- Google Fonts - Montserrat -->
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;700&display=swap" rel="stylesheet">
-  
+
   <!-- Font Awesome Icons -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-  
-  <!-- Custom CSS -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+        integrity="sha512-Fo3rlrZj/k7ujTnHg4CGR2D7kSs0v4LLanw2qksYuRlEzO+tcaEPQogQ0KaoGN26/zrn20ImR1DfuLWnOo7aBA=="
+        crossorigin="anonymous"
+        referrerpolicy="no-referrer">
+
+  <!-- Main CSS (modular architecture) -->
   <link rel="stylesheet" href="css/styles.css">
   <link rel="stylesheet" href="css/music-curation.css">
 </head>
+
 <body>
-  <!-- Loader -->
-  <div class="loader">
-    <img src="images/logo.png" alt="Loading" class="loader-logo">
+  <!-- Page Loader -->
+  <div class="loader" role="status" aria-label="Loading">
+    <img src="images/logo.png" alt="Loading" class="loader-logo" width="80" height="80">
   </div>
-  
-  <!-- Page Transition -->
-  <div class="page-transition"></div>
-  
-  <!-- Header -->
-  <header>
+
+  <!-- Page Transition Overlay -->
+  <div class="page-transition" aria-hidden="true"></div>
+
+  <!-- Header & Navigation -->
+  <header id="header" role="banner">
     <div class="header-content">
+      <!-- Logo -->
       <div class="logo">
-        <a href="index.html">
-          <img src="images/logo.png" alt="Antonio Gomariz Logo">
+        <a href="index.html" aria-label="Return to homepage">
+          <img src="images/logo.png" alt="Antonio Gomariz Logo" width="60" height="60">
         </a>
       </div>
-      
-      <div class="menu-toggle">
+
+      <!-- Mobile Menu Toggle -->
+      <button class="menu-toggle" aria-label="Toggle navigation menu" aria-expanded="false">
         <span class="bar"></span>
         <span class="bar"></span>
         <span class="bar"></span>
-      </div>
-      
-      <nav class="navbar">
+      </button>
+
+      <!-- Navigation -->
+      <nav class="navbar" role="navigation" aria-label="Main navigation">
         <ul class="nav-links">
           <li><a href="index.html#about">About Me</a></li>
-          <li><a href="index.html#work" >My Work</a></li>
+          <li><a href="index.html#work">My Work</a></li>
           <li><a href="index.html#connect">Connect</a></li>
         </ul>
       </nav>
     </div>
   </header>
-  
-  <!-- Header Divider -->
-  <div class="header-divider"></div>
-  
-  <main>
+
+  <!-- Main Content -->
+  <main id="main-content">
+
     <!-- Music Section -->
-    <section class="music-section section">      
+    <section class="music-section section" aria-labelledby="music-heading">
       <div class="music-page">
-        <div class="carousel-container">
+
+        <!-- Image Carousel -->
+        <div class="carousel-container" role="region" aria-label="Soul Sounds event photos">
           <div class="carousel-inner">
             <div class="slide active">
-              <img src="images/soul-sounds-1.jpg" alt="Soul Sounds Event Flyer">
+              <img src="images/soul-sounds-1.jpg"
+                   alt="Soul Sounds Event Flyer"
+                   loading="lazy"
+                   width="600"
+                   height="800">
             </div>
             <div class="slide">
-              <img src="images/soul-sounds-2.jpg" alt="DJ Performance at Soul Sounds">
+              <img src="images/soul-sounds-2.jpg"
+                   alt="DJ Performance at Soul Sounds"
+                   loading="lazy"
+                   width="600"
+                   height="800">
             </div>
             <div class="slide">
-              <img src="images/soul-sounds-3.jpg" alt="Crowd at Soul Sounds Event">
+              <img src="images/soul-sounds-3.jpg"
+                   alt="Crowd at Soul Sounds Event"
+                   loading="lazy"
+                   width="600"
+                   height="800">
             </div>
           </div>
-          <button class="carousel-btn prev"><i class="fas fa-chevron-left"></i></button>
-          <button class="carousel-btn next"><i class="fas fa-chevron-right"></i></button>
+
+          <!-- Carousel Navigation -->
+          <button class="carousel-btn prev" aria-label="View previous image">
+            <i class="fas fa-chevron-left" aria-hidden="true"></i>
+          </button>
+          <button class="carousel-btn next" aria-label="View next image">
+            <i class="fas fa-chevron-right" aria-hidden="true"></i>
+          </button>
         </div>
-        
-        <div class="music-text">
-          <h1>SECTION 8: Soul Sounds</h1>
+
+        <!-- Project Description -->
+        <article class="music-text">
+          <h1 id="music-heading">SECTION 8: Soul Sounds</h1>
           <p>
             I played a key role in a collaboration with Melbourne's iconic venue Section 8 and DJ Shoges (Vapour Recordings), serving as creative lead. This involved designing all promotional materials, curating and performing an opening 3-hour soulful house B3B set that bridged lounge with dancefloor moods, and managing guest outreach. The result was a significant boost in attendance, transforming a standard Wednesday into a night rivaling Saturday's crowds.
           </p>
-          
-          <a href="https://open.spotify.com/playlist/2CUuJhpwBR5BIdk073qiH1?si=6850bc6bb85042dc" target="_blank" class="listen-button">
-            <i class="fas fa-headphones"></i> Listen the Selection
+
+          <a href="https://open.spotify.com/playlist/2CUuJhpwBR5BIdk073qiH1?si=6850bc6bb85042dc"
+             target="_blank"
+             rel="noopener noreferrer"
+             class="listen-button btn btn-primary"
+             aria-label="Listen to Soul Sounds playlist on Spotify">
+            <i class="fas fa-headphones" aria-hidden="true"></i>
+            Listen the Selection
           </a>
-        </div>
+        </article>
+
       </div>
     </section>
+
   </main>
-  
+
   <!-- Footer -->
-  <footer>
+  <footer role="contentinfo">
     <div class="footer-quote">
       <p>what we think,<br>we become.</p>
     </div>
     <div class="footer-logo">
-      <img src="images/secondary-logo.png" alt="Antonio Gomariz Secondary Logo">
+      <img src="images/secondary-logo.png" alt="Antonio Gomariz" width="60" height="60">
     </div>
   </footer>
-  
-  <!-- Lightbox for Music Images -->
-  <div class="lightbox" id="musicLightbox">
+
+  <!-- Lightbox Modal for Music Images -->
+  <div class="lightbox" id="musicLightbox" role="dialog" aria-modal="true" aria-label="Image lightbox">
     <div class="lightbox-content">
-      <span class="close-lightbox">&times;</span>
+      <button class="close-lightbox" aria-label="Close lightbox">&times;</button>
       <img src="" alt="" class="lightbox-image">
+
       <div class="lightbox-nav">
-        <button class="lightbox-btn prev-lightbox"><i class="fas fa-chevron-left"></i></button>
-        <button class="lightbox-btn next-lightbox"><i class="fas fa-chevron-right"></i></button>
+        <button class="lightbox-btn prev-lightbox" aria-label="View previous image">
+          <i class="fas fa-chevron-left" aria-hidden="true"></i>
+        </button>
+        <button class="lightbox-btn next-lightbox" aria-label="View next image">
+          <i class="fas fa-chevron-right" aria-hidden="true"></i>
+        </button>
       </div>
-      <div class="lightbox-counter">1 / 3</div>
+
+      <div class="lightbox-counter" aria-live="polite">1 / 3</div>
     </div>
   </div>
-  
-  <!-- Custom JavaScript -->
-  <script src="js/main.js"></script>
-  <script src="js/music-curation.js"></script>
+
+  <!-- JavaScript (ES6 Modules) -->
+  <script type="module" src="js/main.js"></script>
+  <script src="js/music-curation.js" defer></script>
+
 </body>
 </html>

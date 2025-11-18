@@ -3,52 +3,67 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Antonio Gomariz - Web Design Projects">
+  <meta name="description" content="Antonio Gomariz - Web Design Projects including Ango Metalurgica">
+  <meta name="author" content="Antonio Gomariz">
+  <meta name="theme-color" content="#9F1822">
+
   <title>Web Design | Antonio Gomariz</title>
-    
+
+  <!-- Preconnect to external resources -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+  <!-- Preload critical assets -->
+  <link rel="preload" href="images/logo.png" as="image">
+
   <!-- Favicon -->
   <link rel="icon" href="images/logo.png" type="image/png">
   <link rel="shortcut icon" href="images/logo.png" type="image/png">
   <link rel="apple-touch-icon" href="images/logo.png">
   <meta name="msapplication-TileImage" content="images/logo.png">
-  
-  <!-- Google Fonts -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+  <!-- Google Fonts - Montserrat -->
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;700&display=swap" rel="stylesheet">
-  
+
   <!-- Font Awesome Icons -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-  
-  <!-- Custom CSS -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+        integrity="sha512-Fo3rlrZj/k7ujTnHg4CGR2D7kSs0v4LLanw2qksYuRlEzO+tcaEPQogQ0KaoGN26/zrn20ImR1DfuLWnOo7aBA=="
+        crossorigin="anonymous"
+        referrerpolicy="no-referrer">
+
+  <!-- Main CSS (modular architecture) -->
   <link rel="stylesheet" href="css/styles.css">
   <link rel="stylesheet" href="css/web-design.css">
 </head>
+
 <body>
-  <!-- Loader -->
-  <div class="loader">
-    <img src="images/logo.png" alt="Loading" class="loader-logo">
+  <!-- Page Loader -->
+  <div class="loader" role="status" aria-label="Loading">
+    <img src="images/logo.png" alt="Loading" class="loader-logo" width="80" height="80">
   </div>
-  
-  <!-- Page Transition -->
-  <div class="page-transition"></div>
-  
-  <!-- Header -->
-  <header>
+
+  <!-- Page Transition Overlay -->
+  <div class="page-transition" aria-hidden="true"></div>
+
+  <!-- Header & Navigation -->
+  <header id="header" role="banner">
     <div class="header-content">
+      <!-- Logo -->
       <div class="logo">
-        <a href="index.html">
-          <img src="images/logo.png" alt="Antonio Gomariz Logo">
+        <a href="index.html" aria-label="Return to homepage">
+          <img src="images/logo.png" alt="Antonio Gomariz Logo" width="60" height="60">
         </a>
       </div>
-      
-      <div class="menu-toggle">
+
+      <!-- Mobile Menu Toggle -->
+      <button class="menu-toggle" aria-label="Toggle navigation menu" aria-expanded="false">
         <span class="bar"></span>
         <span class="bar"></span>
         <span class="bar"></span>
-      </div>
-      
-      <nav class="navbar">
+      </button>
+
+      <!-- Navigation -->
+      <nav class="navbar" role="navigation" aria-label="Main navigation">
         <ul class="nav-links">
           <li><a href="index.html#about">About Me</a></li>
           <li><a href="index.html#work">My Work</a></li>
@@ -57,71 +72,94 @@
       </nav>
     </div>
   </header>
-  
-  <!-- Header Divider -->
-  <div class="header-divider"></div>
-  
-  <main>    
+
+  <!-- Main Content -->
+  <main id="main-content">
+
     <!-- Web Design Project -->
-    <section class="webdesign-project section">
+    <section class="webdesign-project section" aria-labelledby="project-heading">
+
+      <!-- Project Information -->
       <div class="project-info">
-        <div class="project-description">
-          <h1>Ango Metalurgica</h1>
-          <p>A comprehensive brand and web design project for Ango Metalurgica, a metallurgical company based in Argentina. The project encompassed logo design, website development, technical sheet creation, and product photography.</p>
-          <p>The client needed a professional digital presence that would showcase their industrial products while providing technical information in an accessible format. I created a clean, modern website with an intuitive navigation system that highlights their product catalog and specifications.</p>
-          <p>The project also included product photography sessions to capture the metalwork quality and detailed technical sheets that communicate precise specifications to potential customers.</p>
-        </div>
-        
-        <div class="project-tech">
-          <h2>Key Technologies</h2>
-          <div class="tech-carousel">
-            <div class="tech-slide active">
-              <i class="fab fa-html5"></i>
+
+        <!-- Description -->
+        <article class="project-description">
+          <h1 id="project-heading">Ango Metalurgica</h1>
+          <p>
+            A comprehensive brand and web design project for Ango Metalurgica, a metallurgical company based in Argentina. The project encompassed logo design, website development, technical sheet creation, and product photography.
+          </p>
+          <p>
+            The client needed a professional digital presence that would showcase their industrial products while providing technical information in an accessible format. I created a clean, modern website with an intuitive navigation system that highlights their product catalog and specifications.
+          </p>
+          <p>
+            The project also included product photography sessions to capture the metalwork quality and detailed technical sheets that communicate precise specifications to potential customers.
+          </p>
+        </article>
+
+        <!-- Technologies -->
+        <aside class="project-tech" aria-labelledby="tech-heading">
+          <h2 id="tech-heading">Key Technologies</h2>
+          <div class="tech-carousel" role="list">
+            <div class="tech-slide active" role="listitem">
+              <i class="fab fa-html5" aria-hidden="true"></i>
               <span>HTML5</span>
             </div>
-            <div class="tech-slide">
-              <i class="fab fa-css3-alt"></i>
+            <div class="tech-slide" role="listitem">
+              <i class="fab fa-css3-alt" aria-hidden="true"></i>
               <span>CSS3</span>
             </div>
-            <div class="tech-slide">
-              <i class="fab fa-js"></i>
+            <div class="tech-slide" role="listitem">
+              <i class="fab fa-js" aria-hidden="true"></i>
               <span>JavaScript</span>
             </div>
-            <div class="tech-slide">
-              <i class="fab fa-wordpress"></i>
-              <span>Wordpress</span>
+            <div class="tech-slide" role="listitem">
+              <i class="fab fa-wordpress" aria-hidden="true"></i>
+              <span>WordPress</span>
             </div>
-            <div class="tech-slide">
-              <i class="fa-solid fa-images"></i>
+            <div class="tech-slide" role="listitem">
+              <i class="fa-solid fa-images" aria-hidden="true"></i>
               <span>Photoshop</span>
             </div>
           </div>
-        </div>
+        </aside>
+
       </div>
-      
+
+      <!-- Project Showcase -->
       <div class="project-showcase">
-        <a href="https://angometalurgica.com.ar/" target="_blank" class="project-image">
-          <img src="images/webdesign-project.png" alt="E-commerce Website Project">
+        <a href="https://angometalurgica.com.ar/"
+           target="_blank"
+           rel="noopener noreferrer"
+           class="project-image"
+           aria-label="View live Ango Metalurgica website">
+          <img src="images/webdesign-project.png"
+               alt="Ango Metalurgica website homepage"
+               loading="lazy"
+               width="800"
+               height="600">
           <div class="project-overlay">
             <span>View Live Site</span>
           </div>
         </a>
       </div>
+
     </section>
+
   </main>
-  
+
   <!-- Footer -->
-  <footer>
+  <footer role="contentinfo">
     <div class="footer-quote">
       <p>what we think,<br>we become.</p>
     </div>
     <div class="footer-logo">
-      <img src="images/secondary-logo.png" alt="Antonio Gomariz Secondary Logo">
+      <img src="images/secondary-logo.png" alt="Antonio Gomariz" width="60" height="60">
     </div>
   </footer>
-  
-  <!-- Custom JavaScript -->
-  <script src="js/main.js"></script>
-  <script src="js/web-design.js"></script>
+
+  <!-- JavaScript (ES6 Modules) -->
+  <script type="module" src="js/main.js"></script>
+  <script src="js/web-design.js" defer></script>
+
 </body>
 </html>
